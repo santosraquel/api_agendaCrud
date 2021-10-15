@@ -8,6 +8,7 @@ import com.aula.resteapi.entidade.Contato;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,9 +42,9 @@ public class ContatoREST {
     }
 
     // Excluir contato
-    @DeleteMapping
-    public void excluir(@RequestBody Contato contato) {
-        repositorio.delete(contato);
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        repositorio.deleteById(id);
     }
 
 }
